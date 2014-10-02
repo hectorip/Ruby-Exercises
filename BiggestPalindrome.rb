@@ -9,6 +9,7 @@ topNumber = 1000
 primes = []
 maxPal = 0;
 (3..1000).step(2) do |n|
+	nonPrime = false
 	for prime in primes
 		if n % prime == 0
 			nonPrime = true
