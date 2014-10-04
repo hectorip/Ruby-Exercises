@@ -1,2 +1,4 @@
-13,8
-17,16
+Hello world
+javaScript language
+a letter
+1st thing

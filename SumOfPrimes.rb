@@ -14,7 +14,7 @@ def sumOfPrimes(top)
 		end
 		if isPrime
 			primes.push(n)
-			sum += n;
+			sum += n
 			count +=1
 		end
 		n += 2
