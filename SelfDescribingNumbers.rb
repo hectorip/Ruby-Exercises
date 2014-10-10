@@ -1,13 +1,14 @@
-File.open(ARGV[0]).each_line do |line
+File.open(ARGV[0]).each_line do |line|
 
   line.strip!
   if line != ''
 
     digits = []
+    success = true
 
     line.each_char.with_index do | digit, index |
       n = digit.to_i
-      success = true
+
       if(digits[index] == nil)
         digits[index] = [n,0]
       else
@@ -19,18 +20,18 @@ File.open(ARGV[0]).each_line do |line
       else
         digits[n] = [0,1]
       end
+    end
 
-    end
-    digits.each do |d|
-      unless d[0] == d[1]
-        puts '0'
-        success = false
-        break
+      digits.each do |d|
+        unless d[0] == d[1]
+          puts '0'
+          success = false
+          break
+        end
       end
-    end
-    if success
-      puts 1
-    end
+      if success
+        puts 1
+      end
 
   end
 
