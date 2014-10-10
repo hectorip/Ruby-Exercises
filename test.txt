@@ -1,4 +1,13 @@
-Hello world
-javaScript language
-a letter
-1st thing
+10
+20
+100
+0
+1
+40
+2
+2
+3
+5
+7
+1000
+12
