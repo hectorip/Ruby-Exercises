@@ -4,15 +4,22 @@ File.open(ARGV[0]).each_line do  |line|
 
     elements = line.split(',')
     distinct_elements = {}
+    major_edge = elements.length / 2
+    found = false
     elements.each do |element|
 
-      unless distinct_elements[element].nil?
+      if distinct_elements[element].nil?
         distinct_elements[element] = 1
       else
         distinct_elements[element] += 1
-
+        if distinct_elements[element] > major_edge
+          puts element
+          found = true
+          break
+        end
+      end
     end
-
+    puts "None" if !found
   end
 
 end
