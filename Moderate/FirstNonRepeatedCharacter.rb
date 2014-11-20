@@ -10,10 +10,10 @@ File.open(ARGV[0]). each_line do |line|
         found = true
         break
       end
-      tmp = chars.clone
-      chars.each_with_index do |element, index |
-        if element == current
-          tmp.delete_at(index)
+      tmp = []
+      chars.each_with_index do |element, index|
+        unless element == current
+          tmp.push element
         end
       end
       chars = tmp
