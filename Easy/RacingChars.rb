@@ -7,10 +7,33 @@
 # The gates are represented by "_" (underscore).
 # The checkpoints are represented by "C" .
 
-File.open(ARGV[0]).each_line do |line|
-  line.strip!
-  if line != ''
-    current = 0
-    line
+
+def runString(line,past)
+  curr =line.index('C')
+  if curr.nil?
+    curr = line.index('_')
   end
+  curr += 1
+  case
+    when (curr == past or past == 0)
+      c = '|'
+    when curr > past
+      c = '\\'
+    else
+      c = '/'
+  end
+  new_string = ''
+  line.each_char.with_index do |old_char,index|
+    old_char = c if index == curr - 1
+    new_string += old_char
+  end
+  puts new_string
+  return curr
+end
+stages = File.open(ARGV[0])
+
+past = 0
+stages.each_line do |line|
+  curr = runString(line,past)
+  past = curr
 end
